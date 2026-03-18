@@ -1,4 +1,4 @@
-FROM node:20-bookworm
+FROM docker.1ms.run/node:20-bookworm
 
 # 安装 Chromium、FFmpeg 和中文字体
 RUN apt-get update && apt-get install -y \
