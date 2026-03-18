@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  remotion:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./public/output:/app/public/output
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - RENDER_CONCURRENCY=3
+      - PORT=3000
+    depends_on:
+      - redis
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: "4"
+
+volumes:
+  redis_data:

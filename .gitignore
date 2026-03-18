@@ -1,0 +1,4 @@
+node_modules/
+dist/
+public/output/*.mp4
+.env
