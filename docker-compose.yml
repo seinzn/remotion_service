@@ -11,14 +11,14 @@ services:
   remotion:
     build: .
     ports:
-      - "3000:3000"
+      - "13926:13926"
     volumes:
       - ./public/output:/app/public/output
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - RENDER_CONCURRENCY=3
-      - PORT=3000
+      - PORT=13926
     depends_on:
       - redis
     deploy:

@@ -22,6 +22,6 @@ COPY . .
 # 编译 TypeScript
 RUN npx tsc --skipLibCheck
 
-EXPOSE 3000
+EXPOSE 13926
 
 CMD ["node", "dist/server/index.js"]
